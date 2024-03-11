@@ -1,0 +1,15 @@
+{
+  "name": "spectral-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "spectral lint {openapi,asyncapi}.yml --ruleset .spectral.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@stoplight/spectral-cli": "^6.11.0"
+  }
+}

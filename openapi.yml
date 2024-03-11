@@ -1,0 +1,27 @@
+openapi: 3.1.0
+
+components:
+  schemas:
+    Foo:
+      type: object
+      additionalProperties: false
+      allOf:
+        - $ref: "#/components/schemas/Bar"
+        - type: object
+          required: [prop2]
+          additionalProperties: false
+          properties:
+            prop2:
+              type: string
+      example:
+        {
+          prop1: "test",
+          prop2: "test",
+        }
+
+    Bar:
+      type: object
+      additionalProperties: false
+      properties:
+        prop1:
+          type: string

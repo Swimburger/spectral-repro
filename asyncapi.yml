@@ -1,0 +1,41 @@
+asyncapi: 2.6.0
+
+channels:
+  /:
+    subscribe:
+      operationId: operation-id
+      message:
+        oneOf:
+          - $ref: "#/components/messages/Foo"
+
+components:
+  messages:
+    Foo:
+      messageId: foo
+      payload:
+        $ref: "#/components/schemas/Foo"
+
+  schemas:
+    Foo:
+      type: object
+      additionalProperties: false
+      allOf:
+        - $ref: "#/components/schemas/Bar"
+        - type: object
+          required: [prop2]
+          additionalProperties: false
+          properties:
+            prop2:
+              type: string
+      examples:
+      - {
+          prop1: "test",
+          prop2: "test",
+        }
+
+    Bar:
+      type: object
+      additionalProperties: false
+      properties:
+        prop1:
+          type: string
